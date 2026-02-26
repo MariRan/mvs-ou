@@ -3,135 +3,158 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MVS OÜ | Professional Services</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <title>MVS OÜ | Premium Home Services</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600;800&display=swap" rel="stylesheet">
     <style>
-        body { margin: 0; font-family: 'Roboto', sans-serif; color: #333; line-height: 1.6; background-color: #fcfcfc; }
-        header { background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%); color: white; padding: 60px 20px; text-align: center; }
-        .container { max-width: 1100px; margin: auto; padding: 20px; }
-        nav { background: #fff; padding: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000; }
-        .lang-switch { text-align: right; margin-bottom: 5px; }
-        .lang-switch button { background: none; border: 1px solid #3498db; color: #3498db; cursor: pointer; padding: 5px 10px; border-radius: 4px; margin-left: 5px; font-weight: bold; }
-        .lang-switch button:hover { background: #3498db; color: white; }
+        * { box-sizing: border-box; }
+        body, html { 
+            margin: 0; padding: 0; height: 100%; overflow: hidden; 
+            font-family: 'Montserrat', sans-serif; background: #0f172a; color: white;
+        }
+        .bg-gradient {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(circle at top right, #1e3a8a, #0f172a);
+            z-index: -1;
+        }
+        .main-screen {
+            display: flex; flex-direction: column; height: 100vh; padding: 30px 50px;
+        }
+        nav { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+        .logo { font-weight: 800; font-size: 2rem; letter-spacing: 2px; color: #38bdf8; }
+        .lang-btns button { 
+            background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.2);
+            color: white; padding: 8px 15px; border-radius: 20px; cursor: pointer; margin-left: 8px; transition: 0.3s;
+        }
+        .lang-btns button:hover { background: #38bdf8; border-color: #38bdf8; }
+
+        .content { flex-grow: 1; display: flex; flex-direction: column; justify-content: center; }
+        h1 { font-size: 2.8rem; margin-bottom: 40px; font-weight: 800; line-height: 1.2; }
         
-        .hero h1 { font-family: 'Montserrat', sans-serif; font-size: 2.5rem; margin-bottom: 15px; text-transform: uppercase; }
-        .services { display: flex; justify-content: space-between; flex-wrap: wrap; margin-top: 30px; }
-        .service-card { background: white; padding: 25px; border-radius: 12px; width: 48%; min-width: 300px; margin-bottom: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); border-top: 4px solid #3498db; }
-        .highlight-box { background: #e8f4fd; border-radius: 10px; padding: 25px; margin: 30px 0; border-left: 6px solid #2980b9; }
-        footer { background: #2c3e50; color: white; text-align: center; padding: 40px 20px; margin-top: 40px; }
-        .btn { background: #e74c3c; color: white; padding: 12px 30px; text-decoration: none; border-radius: 25px; font-weight: bold; display: inline-block; margin-top: 20px; }
-        @media (max-width: 768px) { .service-card { width: 100%; } }
+        .services-grid {
+            display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;
+        }
+        .card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 35px 25px; border-radius: 24px;
+            transition: all 0.4s ease;
+            cursor: pointer;
+        }
+        .card:hover {
+            background: rgba(255, 255, 255, 0.08);
+            transform: translateY(-10px);
+            border-color: #38bdf8;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+        }
+        .card h3 { color: #38bdf8; margin-top: 0; font-size: 1.3rem; margin-bottom: 15px; }
+        .card p { font-size: 0.95rem; opacity: 0.7; line-height: 1.5; margin: 0; }
+        
+        footer { 
+            margin-top: auto; padding: 30px 0; 
+            border-top: 1px solid rgba(255,255,255,0.1);
+            display: flex; justify-content: space-between; align-items: flex-end;
+            font-size: 0.85rem; opacity: 0.8;
+        }
+        .footer-info div { margin-bottom: 5px; }
+        .contact-link { color: #38bdf8; text-decoration: none; font-weight: 600; font-size: 1.1rem; }
+        
+        @media (max-width: 1100px) {
+            .services-grid { grid-template-columns: repeat(2, 1fr); }
+            body, html { overflow-y: auto; height: auto; }
+            .main-screen { height: auto; padding: 20px; }
+            h1 { font-size: 2rem; margin: 30px 0; }
+        }
     </style>
 </head>
 <body>
 
-<nav>
-    <div class="container">
-        <div class="lang-switch">
+<div class="bg-gradient"></div>
+
+<div class="main-screen">
+    <nav>
+        <div class="logo">MVS OÜ</div>
+        <div class="lang-btns">
             <button onclick="setLang('et')">ET</button>
             <button onclick="setLang('en')">EN</button>
             <button onclick="setLang('ru')">RU</button>
         </div>
-        <div style="display: flex; justify-content: space-between; align-items: center;">
-            <span style="font-size: 1.5rem; font-weight: 700; color: #2c3e50; font-family: 'Montserrat';">MVS OÜ</span>
+    </nav>
+
+    <div class="content">
+        <h1 id="title">Premium Property Solutions</h1>
+        <div class="services-grid">
+            <div class="card">
+                <h3 id="s1-t">Puhastus</h3>
+                <p id="s1-p">Professionaalne hooldus ja puhtus teie kodus või kontoris.</p>
+            </div>
+            <div class="card">
+                <h3 id="s2-t">Flipping & Remont</h3>
+                <p id="s2-p">Kinnisvara väärtuse tõstmine ja siseviimistlus.</p>
+            </div>
+            <div class="card">
+                <h3 id="s3-t">Kodu Meister</h3>
+                <p id="s3-p">Mööbli kokkupanek и pisiremont 24/7.</p>
+            </div>
+            <div class="card">
+                <h3 id="s4-t">Hoolivusabi</h3>
+                <p id="s4-p">Sotsiaalne tugi и abi igapäevaelus eakatele.</p>
+            </div>
         </div>
     </div>
-</nav>
 
-<header class="hero">
-    <div class="container">
-        <h1 id="h1-title">MVS OÜ</h1>
-        <p id="hero-p">Professionaalne teenindus ja remont Eestis</p>
-        <a href="#contact" class="btn" id="btn-contact">Kontakt</a>
-    </div>
-</header>
-
-<div class="container">
-    <section id="services">
-        <h2 id="services-h2" style="text-align: center;">Meie teenused</h2>
-        <div class="services">
-            <div class="service-card">
-                <h3 id="s1-t">Puhastus ja koristus</h3>
-                <p id="s1-p">Kodu- ja kontori koristus. Professionaalne suurpuhastus ja puhastus pärast remonti.</p>
-            </div>
-            <div class="service-card">
-                <h3 id="s2-t">Remont ja Flipping</h3>
-                <p id="s2-p">Kinnisvara ettevalmistamine müügiks või üürimiseks. Kvaliteetne siseviimistlus.</p>
-            </div>
-            <div class="service-card">
-                <h3 id="s3-t">Koduteenused</h3>
-                <p id="s3-p">Pisiremont, mööbli kokkupanek, tehnikapaigaldus ja abi majapidamises.</p>
-            </div>
-            <div class="service-card">
-                <h3 id="s4-t">Sotsiaalabi</h3>
-                <p id="s4-p">Abi eakatele: hooldusabi, saatmine ja mugavate elutingimuste tagamine.</p>
-            </div>
+    <footer>
+        <div class="footer-info">
+            <div><strong>MVS OÜ</strong> | Reg. nr: 14414099</div>
+            <div id="addr">Narva mnt 1, Kesklinna, Tallinn, 10613, Estonia</div>
+            <div>&copy; 2026 Kõik õigused kaitstud</div>
         </div>
-    </section>
-
-    <section class="highlight-box">
-        <h2 id="about-h2">Miks valida meid?</h2>
-        <p id="about-p">MVS OÜ ühendab kõrged teenindusstandardid ja hoolivuse. Teeme koostööd Euroopa õppeasutustega, pakkudes praktikavõimalusi.</p>
-    </section>
+        <div style="text-align: right;">
+            <div id="call-us" style="margin-bottom: 5px; opacity: 0.6;">Helistage meile:</div>
+            <a href="tel:+37255677575" class="contact-link">+372 55677575</a>
+        </div>
+    </footer>
 </div>
-
-<footer id="contact">
-    <div class="container">
-        <h2 id="footer-h2">Võtke meiega ühendust</h2>
-        <p><strong>MVS OÜ</strong> | Tallinn, Estonia</p>
-        <p>Email: info@mvs.ee</p>
-        <p style="margin-top: 20px; font-size: 0.8rem; opacity: 0.6;">&copy; 2026 MVS OÜ</p>
-    </div>
-</footer>
 
 <script>
     const content = {
         et: {
-            heroP: "Professionaalne teenindus ja remont Eestis. Teie kinnisvara täielik hooldus.",
-            btn: "Kontakt",
-            servH2: "Meie teenused",
-            s1t: "Puhastus ja koristus", s1p: "Kodu- ja kontori koristus. Professionaalne suurpuhastus ja puhastus pärast remonti.",
-            s2t: "Remont ja Flipping", s2p: "Kinnisvara ettevalmistamine müügiks või üürimiseks. Kvaliteetne siseviimistlus.",
-            s3t: "Koduteenused", s3p: "Pisiremont, mööbli kokkupanek, tehnikapaigaldus ja abi majapidamises.",
-            s4t: "Sotsiaalabi", s4p: "Abi eakatele: hooldusabi, saatmine ja mugavate elutingimuste tagamine.",
-            abH2: "Miks valida MVS OÜ?", abP: "MVS OÜ ühendab kõrged teenindusstandardid ja hoolivuse. Teeme koostööd Euroopa õppeasutustega (sh Soome), pakkudes rahvusvahelist praktikabaasi.",
-            footH2: "Võtke meiega ühendust"
+            title: "Premium Kinnisvara Teenused Eestis",
+            s1t: "Puhastus", s1p: "Professionaalne hooldus ja puhtus teie kodus või kontoris. Suurpuhastus pärast remonti.",
+            s2t: "Flipping & Remont", s2p: "Kinnisvara ettevalmistus müügiks. Kvaliteetne remont ja väärtuse tõstmine.",
+            s3t: "Kodu Meister", s3p: "Mööbli kokkupanek, tehnikapaigaldus ja kõik vajalikud pisitööd kodus.",
+            s4t: "Hoolivusabi", s4p: "Sotsiaalne tugi eakatele: abi majapidamises ja igapäevane hoolitsus.",
+            addr: "Narva mnt 1, Kesklinna, Tallinn, 10613, Eesti",
+            call: "Helistage meile:"
         },
         en: {
-            heroP: "Professional service and renovation in Estonia. Complete care for your property.",
-            btn: "Contact Us",
-            servH2: "Our Services",
-            s1t: "Cleaning Services", s1p: "Residential and office cleaning. Deep cleaning and post-construction cleaning.",
-            s2t: "Renovation & Flipping", s2p: "Property preparation for sale or rent. High-quality interior finishing.",
-            s3t: "Home Assistance", s3p: "Handyman services, furniture assembly, and household maintenance.",
-            s4t: "Social Care", s4p: "Assistance for the elderly: home care, accompaniment, and comfort support.",
-            abH2: "Why Choose MVS OÜ?", abP: "MVS OÜ combines high service standards with genuine care. We cooperate with European educational institutions, providing international internships.",
-            footH2: "Contact Information"
+            title: "Premium Property Solutions in Estonia",
+            s1t: "Cleaning", s1p: "Professional maintenance and purity for your space. Post-construction deep cleaning.",
+            s2t: "Flipping & Reno", s2p: "Property preparation for sale. High-quality renovation to maximize value.",
+            s3t: "Handyman", s3p: "Furniture assembly, appliance installation, and home technical support.",
+            s4t: "Social Care", s4p: "Assistance for the elderly: household help and daily warm support.",
+            addr: "Narva mnt 1, Kesklinna, Tallinn, 10613, Estonia",
+            call: "Call us:"
         },
         ru: {
-            heroP: "Профессиональный сервис и ремонт в Эстонии. Полная забота о вашей недвижимости.",
-            btn: "Связаться с нами",
-            servH2: "Наши услуги",
-            s1t: "Клининг и уборка", s1p: "Уборка жилых и офисных помещений. Генеральная уборка и уборка после ремонта.",
-            s2t: "Ремонт и Флиппинг", s2p: "Подготовка недвижимости к продаже или аренде. Качественная внутренняя отделка.",
-            s3t: "Помощь по дому", s3p: "Мастер на час, сборка мебели, установка техники и бытовая помощь.",
-            s4t: "Забота и опека", s4p: "Помощь пожилым людям: сопровождение, помощь в быту и поддержка комфорта.",
-            abH2: "Почему выбирают MVS OÜ?", abP: "MVS OÜ объединяет стандарты сервиса и заботу. Мы сотрудничаем с европейскими вузами, предоставляя базу для практики студентов.",
-            footH2: "Свяжитесь с нами"
+            title: "Сервис Недвижимости Премиум Класса",
+            s1t: "Клининг", s1p: "Профессиональный уход и идеальная чистота. Уборка после ремонта и строительства.",
+            s2t: "Флиппинг", s2p: "Подготовка жилья к продаже. Качественный ремонт для роста стоимости.",
+            s3t: "Мастер", s3p: "Сборка мебели, установка техники и любая помощь по дому 24/7.",
+            s4t: "Забота", s4p: "Социальная помощь пожилым: бытовая поддержка и искренняя забота.",
+            addr: "Narva mnt 1, Kesklinna, Таллинн, 10613, Эстония",
+            call: "Позвоните нам:"
         }
     };
 
     function setLang(lang) {
-        document.getElementById('hero-p').innerText = content[lang].heroP;
-        document.getElementById('btn-contact').innerText = content[lang].btn;
-        document.getElementById('services-h2').innerText = content[lang].servH2;
+        document.getElementById('title').innerText = content[lang].title;
         document.getElementById('s1-t').innerText = content[lang].s1t; document.getElementById('s1-p').innerText = content[lang].s1p;
         document.getElementById('s2-t').innerText = content[lang].s2t; document.getElementById('s2-p').innerText = content[lang].s2p;
         document.getElementById('s3-t').innerText = content[lang].s3t; document.getElementById('s3-p').innerText = content[lang].s3p;
         document.getElementById('s4-t').innerText = content[lang].s4t; document.getElementById('s4-p').innerText = content[lang].s4p;
-        document.getElementById('about-h2').innerText = content[lang].abH2;
-        document.getElementById('about-p').innerText = content[lang].abP;
-        document.getElementById('footer-h2').innerText = content[lang].footH2;
+        document.getElementById('addr').innerText = content[lang].addr;
+        document.getElementById('call-us').innerText = content[lang].call;
     }
 </script>
 
