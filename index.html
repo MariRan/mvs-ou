@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="et">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MVS OÜ | Professional Services</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        body { margin: 0; font-family: 'Roboto', sans-serif; color: #333; line-height: 1.6; background-color: #fcfcfc; }
+        header { background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%); color: white; padding: 60px 20px; text-align: center; }
+        .container { max-width: 1100px; margin: auto; padding: 20px; }
+        nav { background: #fff; padding: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000; }
+        .lang-switch { text-align: right; margin-bottom: 5px; }
+        .lang-switch button { background: none; border: 1px solid #3498db; color: #3498db; cursor: pointer; padding: 5px 10px; border-radius: 4px; margin-left: 5px; font-weight: bold; }
+        .lang-switch button:hover { background: #3498db; color: white; }
+        
+        .hero h1 { font-family: 'Montserrat', sans-serif; font-size: 2.5rem; margin-bottom: 15px; text-transform: uppercase; }
+        .services { display: flex; justify-content: space-between; flex-wrap: wrap; margin-top: 30px; }
+        .service-card { background: white; padding: 25px; border-radius: 12px; width: 48%; min-width: 300px; margin-bottom: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); border-top: 4px solid #3498db; }
+        .highlight-box { background: #e8f4fd; border-radius: 10px; padding: 25px; margin: 30px 0; border-left: 6px solid #2980b9; }
+        footer { background: #2c3e50; color: white; text-align: center; padding: 40px 20px; margin-top: 40px; }
+        .btn { background: #e74c3c; color: white; padding: 12px 30px; text-decoration: none; border-radius: 25px; font-weight: bold; display: inline-block; margin-top: 20px; }
+        @media (max-width: 768px) { .service-card { width: 100%; } }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="container">
+        <div class="lang-switch">
+            <button onclick="setLang('et')">ET</button>
+            <button onclick="setLang('en')">EN</button>
+            <button onclick="setLang('ru')">RU</button>
+        </div>
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+            <span style="font-size: 1.5rem; font-weight: 700; color: #2c3e50; font-family: 'Montserrat';">MVS OÜ</span>
+        </div>
+    </div>
+</nav>
+
+<header class="hero">
+    <div class="container">
+        <h1 id="h1-title">MVS OÜ</h1>
+        <p id="hero-p">Professionaalne teenindus ja remont Eestis</p>
+        <a href="#contact" class="btn" id="btn-contact">Kontakt</a>
+    </div>
+</header>
+
+<div class="container">
+    <section id="services">
+        <h2 id="services-h2" style="text-align: center;">Meie teenused</h2>
+        <div class="services">
+            <div class="service-card">
+                <h3 id="s1-t">Puhastus ja koristus</h3>
+                <p id="s1-p">Kodu- ja kontori koristus. Professionaalne suurpuhastus ja puhastus pärast remonti.</p>
+            </div>
+            <div class="service-card">
+                <h3 id="s2-t">Remont ja Flipping</h3>
+                <p id="s2-p">Kinnisvara ettevalmistamine müügiks või üürimiseks. Kvaliteetne siseviimistlus.</p>
+            </div>
+            <div class="service-card">
+                <h3 id="s3-t">Koduteenused</h3>
+                <p id="s3-p">Pisiremont, mööbli kokkupanek, tehnikapaigaldus ja abi majapidamises.</p>
+            </div>
+            <div class="service-card">
+                <h3 id="s4-t">Sotsiaalabi</h3>
+                <p id="s4-p">Abi eakatele: hooldusabi, saatmine ja mugavate elutingimuste tagamine.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="highlight-box">
+        <h2 id="about-h2">Miks valida meid?</h2>
+        <p id="about-p">MVS OÜ ühendab kõrged teenindusstandardid ja hoolivuse. Teeme koostööd Euroopa õppeasutustega, pakkudes praktikavõimalusi.</p>
+    </section>
+</div>
+
+<footer id="contact">
+    <div class="container">
+        <h2 id="footer-h2">Võtke meiega ühendust</h2>
+        <p><strong>MVS OÜ</strong> | Tallinn, Estonia</p>
+        <p>Email: info@mvs.ee</p>
+        <p style="margin-top: 20px; font-size: 0.8rem; opacity: 0.6;">&copy; 2026 MVS OÜ</p>
+    </div>
+</footer>
+
+<script>
+    const content = {
+        et: {
+            heroP: "Professionaalne teenindus ja remont Eestis. Teie kinnisvara täielik hooldus.",
+            btn: "Kontakt",
+            servH2: "Meie teenused",
+            s1t: "Puhastus ja koristus", s1p: "Kodu- ja kontori koristus. Professionaalne suurpuhastus ja puhastus pärast remonti.",
+            s2t: "Remont ja Flipping", s2p: "Kinnisvara ettevalmistamine müügiks või üürimiseks. Kvaliteetne siseviimistlus.",
+            s3t: "Koduteenused", s3p: "Pisiremont, mööbli kokkupanek, tehnikapaigaldus ja abi majapidamises.",
+            s4t: "Sotsiaalabi", s4p: "Abi eakatele: hooldusabi, saatmine ja mugavate elutingimuste tagamine.",
+            abH2: "Miks valida MVS OÜ?", abP: "MVS OÜ ühendab kõrged teenindusstandardid ja hoolivuse. Teeme koostööd Euroopa õppeasutustega (sh Soome), pakkudes rahvusvahelist praktikabaasi.",
+            footH2: "Võtke meiega ühendust"
+        },
+        en: {
+            heroP: "Professional service and renovation in Estonia. Complete care for your property.",
+            btn: "Contact Us",
+            servH2: "Our Services",
+            s1t: "Cleaning Services", s1p: "Residential and office cleaning. Deep cleaning and post-construction cleaning.",
+            s2t: "Renovation & Flipping", s2p: "Property preparation for sale or rent. High-quality interior finishing.",
+            s3t: "Home Assistance", s3p: "Handyman services, furniture assembly, and household maintenance.",
+            s4t: "Social Care", s4p: "Assistance for the elderly: home care, accompaniment, and comfort support.",
+            abH2: "Why Choose MVS OÜ?", abP: "MVS OÜ combines high service standards with genuine care. We cooperate with European educational institutions, providing international internships.",
+            footH2: "Contact Information"
+        },
+        ru: {
+            heroP: "Профессиональный сервис и ремонт в Эстонии. Полная забота о вашей недвижимости.",
+            btn: "Связаться с нами",
+            servH2: "Наши услуги",
+            s1t: "Клининг и уборка", s1p: "Уборка жилых и офисных помещений. Генеральная уборка и уборка после ремонта.",
+            s2t: "Ремонт и Флиппинг", s2p: "Подготовка недвижимости к продаже или аренде. Качественная внутренняя отделка.",
+            s3t: "Помощь по дому", s3p: "Мастер на час, сборка мебели, установка техники и бытовая помощь.",
+            s4t: "Забота и опека", s4p: "Помощь пожилым людям: сопровождение, помощь в быту и поддержка комфорта.",
+            abH2: "Почему выбирают MVS OÜ?", abP: "MVS OÜ объединяет стандарты сервиса и заботу. Мы сотрудничаем с европейскими вузами, предоставляя базу для практики студентов.",
+            footH2: "Свяжитесь с нами"
+        }
+    };
+
+    function setLang(lang) {
+        document.getElementById('hero-p').innerText = content[lang].heroP;
+        document.getElementById('btn-contact').innerText = content[lang].btn;
+        document.getElementById('services-h2').innerText = content[lang].servH2;
+        document.getElementById('s1-t').innerText = content[lang].s1t; document.getElementById('s1-p').innerText = content[lang].s1p;
+        document.getElementById('s2-t').innerText = content[lang].s2t; document.getElementById('s2-p').innerText = content[lang].s2p;
+        document.getElementById('s3-t').innerText = content[lang].s3t; document.getElementById('s3-p').innerText = content[lang].s3p;
+        document.getElementById('s4-t').innerText = content[lang].s4t; document.getElementById('s4-p').innerText = content[lang].s4p;
+        document.getElementById('about-h2').innerText = content[lang].abH2;
+        document.getElementById('about-p').innerText = content[lang].abP;
+        document.getElementById('footer-h2').innerText = content[lang].footH2;
+    }
+</script>
+
+</body>
+</html>
